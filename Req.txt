@@ -1,0 +1,25 @@
+Paciente
+
+nombre
+sexo
+edad
+castrado
+alergias !
+
+consultas a la que fueron (otra clase?)
+
+Consultas
+
+motivo
+anamnesis (que paso, hace cuanto, como es el sintoma)
+examen clinico (que se le hizo al paciente)
+diagnostico presuntivo
+metodo complementario
+tratamiento
+sugerencia o indicacion al propietario
+
+Dueño
+
+nombre
+zona
+telefono
