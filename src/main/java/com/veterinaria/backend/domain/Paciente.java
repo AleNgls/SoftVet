@@ -21,6 +21,11 @@ public class Paciente {
     private String sexo;
     private float edad;
     private Boolean castrado;
+    private String alergias;
+
+    @ManyToOne
+    @JoinColumn(name = "dueno_id")
+    private Dueno dueno;
 
 
     public Paciente(String nombre, String sexo, float edad, Boolean castrado) {
@@ -28,5 +33,12 @@ public class Paciente {
         this.sexo = sexo;
         this.edad = edad;
         this.castrado = castrado;
+    }
+    public Paciente(String nombre, String sexo, float edad, Boolean castrado, Dueno dueno) {
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.edad = edad;
+        this.castrado = castrado;
+        this.dueno = dueno;
     }
 }
