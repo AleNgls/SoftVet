@@ -15,16 +15,18 @@ public class PacienteResponse {
     String sexo;
     float edad;
     boolean castrado;
+    long duenoId;
+    String duenoNombre;
 
     public static PacienteResponse from(Paciente paciente){
-
         return PacienteResponse.builder()
                 .id(paciente.getId())
                 .nombre(paciente.getNombre())
                 .sexo(paciente.getSexo())
                 .edad(paciente.getEdad())
                 .castrado(paciente.getCastrado())
+                .duenoId(paciente.getDueno() != null ? paciente.getDueno().getId() : 0L)
+                .duenoNombre(paciente.getDueno() != null ? paciente.getDueno().getNombre() : "Sin dueño")
                 .build();
     }
-
 }

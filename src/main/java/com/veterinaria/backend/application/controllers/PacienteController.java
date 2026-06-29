@@ -42,7 +42,6 @@ public class PacienteController {
 
             return ResponseHandler.badRequest(e.getMessage());
         }
-
     }
 
     @PostMapping
