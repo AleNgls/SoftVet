@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class DuenoController {
     private final DuenoService duenoService;
 
     @GetMapping
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Object> findAll() {
         try {
             var duenosEntidades = duenoService.findAll();
@@ -39,6 +41,7 @@ public class DuenoController {
     }
 
     @PostMapping
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Object> create(@RequestBody CreateDuenoReq createDuenoReq){
 
         duenoService.create(createDuenoReq.getNombre(),

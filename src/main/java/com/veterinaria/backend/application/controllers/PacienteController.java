@@ -8,6 +8,7 @@ import com.veterinaria.backend.services.interfaces.PacienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,6 +19,7 @@ public class PacienteController {
     private final PacienteService pacienteService;
 
     @GetMapping("/{id}")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Object> findOne(@PathVariable Long id){
 
         try {
@@ -31,6 +33,7 @@ public class PacienteController {
     }
 
     @GetMapping
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Object> findAll(){
         try {
             val pacientes = pacienteService.findAll()
@@ -45,6 +48,7 @@ public class PacienteController {
     }
 
     @PostMapping
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Object> create(@RequestBody CreatePacienteReq createPacienteReq){
 
         try {

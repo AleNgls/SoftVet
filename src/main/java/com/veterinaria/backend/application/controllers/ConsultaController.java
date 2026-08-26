@@ -8,6 +8,7 @@ import com.veterinaria.backend.services.interfaces.ConsultaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,9 @@ import java.util.List;
 public class ConsultaController {
 
     private final ConsultaService consultaService;
+
     @GetMapping
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Object> findAll() {
         var consultas = consultaService.findAll()
                 .stream().map(ConsultaResponse::from)
@@ -27,6 +30,7 @@ public class ConsultaController {
     }
 
     @PostMapping("/paciente/{pacienteId}")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Object> create(@RequestBody CreateConsultaReq consultaReq, @PathVariable Long pacienteId) {
         // 1. Convertimos los datos del DTO (request) a la entidad de dominio Consulta
         Consulta consulta = new Consulta();
@@ -39,7 +43,7 @@ public class ConsultaController {
         consulta.setIndicaciones(consultaReq.getIndicaciones());
 
         // 2. Pasamos la entidad armada y el pacienteId al servicio
-        Consulta nuevaConsulta = consultaService.create(consulta, pacienteId);
+        consultaService.create(consulta, pacienteId);
 
         // 3. Retornamos la respuesta de éxito
         return ResponseHandler.success("Consulta creada exitosamente");

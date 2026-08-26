@@ -43,7 +43,6 @@ public class UserController {
     public ResponseEntity<Object> login(@Valid @RequestBody LoginReq loginReq) {
         String token = authService.login(loginReq);
         LoginResponse response = new LoginResponse(token);
-
         return ResponseHandler.success(response, "Inicio de sesión exitoso.");
     }
 }
