@@ -16,4 +16,6 @@ public interface ProductoService {
 
     Optional<Producto> findByMarca(String marca);
 
+    void delete(long id);
+
 }

@@ -36,4 +36,9 @@ public class ProductoServiceImpl implements ProductoService {
     public Optional<Producto> findByMarca(String marca) {
         return productoRep.findByMarca(marca);
     }
+
+    @Override
+    public void delete(long id) {
+        productoRep.deleteById(id);
+    }
 }
