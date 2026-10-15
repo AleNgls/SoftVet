@@ -23,6 +23,7 @@ public class ConsultaResponse {
     private String pedidoComplementario;
     private String tratamiento;
     private String indicaciones;
+    private String pdfPath;
 
     public static ConsultaResponse from(Consulta consulta){
 
@@ -38,6 +39,7 @@ public class ConsultaResponse {
                 .pedidoComplementario(consulta.getPedidoComplementario())
                 .tratamiento(consulta.getTratamiento())
                 .indicaciones(consulta.getIndicaciones())
+                .pdfPath(consulta.getPdfPath())
                 .build();
     }
 

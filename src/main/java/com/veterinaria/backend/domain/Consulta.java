@@ -46,6 +46,9 @@ public class Consulta {
     @Column(columnDefinition = "TEXT")
     private String indicaciones;
 
+    @Column(name = "pdf_path")
+    private String pdfPath;
+
     @PrePersist
     protected void onCreate() {
         this.fechaConsulta = LocalDateTime.now();
