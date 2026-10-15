@@ -15,7 +15,7 @@ public class CorsConfig {
                 registry.addMapping("/**") // Permite CORS en todas las rutas de tu API
                         .allowedOrigins(
                                 "http://localhost:5173", // Para cuando pruebes localmente con Vite
-                                "https://soft-vet-front.vercel.app/" // <-- REEMPLAZA ESTO
+                                "https://soft-vet-front.vercel.app" // <-- REEMPLAZA ESTO
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
